@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2022 at 10:56 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.3.33
+-- Waktu pembuatan: 27 Bulan Mei 2024 pada 11.40
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -23,9 +23,9 @@ SET time_zone = "+00:00";
 
 DELIMITER $$
 --
--- Functions
+-- Fungsi
 --
-CREATE DEFINER=`root`@`localhost` FUNCTION `kode_automatis` (`kode` INT) RETURNS CHAR(7) CHARSET latin1 BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `kode_automatis` (`kode` INT) RETURNS CHAR(7) CHARSET latin1 COLLATE latin1_swedish_ci  BEGIN
 DECLARE kodebaru CHAR(7);
 DECLARE urut INT;
  
@@ -35,7 +35,7 @@ SET kodebaru = CONCAT("TRX", LPAD(urut, 4, 0));
 RETURN kodebaru;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `kode_automatis2` (`kode` INT) RETURNS CHAR(7) CHARSET latin1 BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `kode_automatis2` (`kode` INT) RETURNS CHAR(7) CHARSET latin1 COLLATE latin1_swedish_ci  BEGIN
 DECLARE kodebaru CHAR(7);
 DECLARE urut INT;
  
@@ -50,7 +50,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemasukkan`
+-- Struktur dari tabel `pemasukkan`
 --
 
 CREATE TABLE `pemasukkan` (
@@ -60,37 +60,25 @@ CREATE TABLE `pemasukkan` (
   `sumber` varchar(30) NOT NULL,
   `jumlah` varchar(250) NOT NULL,
   `username` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `pemasukkan`
+-- Dumping data untuk tabel `pemasukkan`
 --
 
 INSERT INTO `pemasukkan` (`id`, `tanggal`, `keterangan`, `sumber`, `jumlah`, `username`) VALUES
-(32, '2022-07-01', 'Gaji Bulanan', 'ATM', '75.000.000', 'admin'),
-(34, '2022-08-05', 'Desain Poster', 'ATM', '150.000', 'admin'),
-(35, '2022-08-09', 'Design Website Pemerintah', 'ATM', '25.000.000', 'admin'),
-(36, '2022-08-18', 'Adsense Youtube', 'Pekerjaan', '45.000.000', 'admin'),
-(37, '2022-08-18', 'Pembuatan Aplikasi Mobile', 'ATM', '55.000.000', 'admin'),
-(38, '2022-08-18', 'Pembuatan IoT', 'ATM', '7.500.000', 'admin'),
-(39, '2022-08-30', 'Design Website Sekkolahan', 'ATM', '7.500.000', 'admin'),
-(40, '2022-08-30', 'Tarik tunai', 'ATM', '25000000', 'admin'),
-(41, '2022-08-01', 'Gaji Bulanan', 'Pekerjaan', '75.000.000', 'andi'),
-(42, '2022-08-01', 'Pembuatan Poster Kegiatan', 'Lain - lain', '250.000', 'andi'),
-(43, '2022-08-11', 'Pembuatan Video Promosi', 'Lain - lain', '2.000.000', 'andi'),
-(44, '2022-08-13', 'Perancangan Sistem IoT', 'Lain - lain', '7.500.000', 'andi'),
-(45, '2022-08-13', 'Installasi OS', 'Lain - lain', '500.000', 'andi'),
-(46, '2022-08-16', 'Pembayaran Hutang Budi', 'Piutang', '75.000', 'andi'),
-(47, '2022-08-18', 'Jual Saham Perusahaan xyz', 'Laba penjualan', '150.000.000', 'andi'),
-(48, '2022-08-24', 'Pembuatan Website Pemerintah', 'ATM', '25.000.000', 'andi'),
-(49, '2022-08-30', 'Pembuatan Website Perusahaan', 'ATM', '55.500.000', 'andi'),
-(50, '2022-08-31', 'Pembuatan Aplikasi Pemerintaha', 'Pekerjaan', '25.000.000', 'andi'),
-(51, '2022-08-31', 'Pembuatan Poster Pendidikan', 'ATM', '75.000', 'andi');
+(55, '2024-05-27', 'Jual Saham Perusahaan', 'Pekerjaan', '580.000.000', 'admin'),
+(57, '2024-05-27', 'Gaji Bulanan', 'ATM', '35.000.000', 'admin'),
+(58, '2024-05-27', 'Pembuatan Software Pemerintah', 'Lain - lain', '28.000.000', 'admin'),
+(59, '2024-05-27', 'Pembuatan Design Poster', 'Pekerjaan', '250.000', 'admin'),
+(60, '2024-05-27', 'Pemberian Kas Perusahaan', 'Pemberian', '27.500.000', 'andi'),
+(61, '2024-05-27', 'Modal Perusahaan', 'Laba penjualan', '55.000.000', 'andi'),
+(62, '2024-05-27', ' Pendapatan Investasi', 'Pekerjaan', '17.250.000', 'andi');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengeluaran`
+-- Struktur dari tabel `pengeluaran`
 --
 
 CREATE TABLE `pengeluaran` (
@@ -100,31 +88,26 @@ CREATE TABLE `pengeluaran` (
   `keperluan` varchar(30) NOT NULL,
   `jumlah` varchar(255) NOT NULL,
   `username` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `pengeluaran`
+-- Dumping data untuk tabel `pengeluaran`
 --
 
 INSERT INTO `pengeluaran` (`id`, `tanggal`, `keterangan`, `keperluan`, `jumlah`, `username`) VALUES
-(15, '2022-08-06', 'Pembayaran uang kuliah', 'Lain - lain', '7.500.000', 'admin'),
-(16, '2022-08-09', 'Pembayarn Kos', 'Keperluan pribadi', '1.500.000', 'admin'),
-(17, '2022-08-19', 'Peralatan mandi', 'Peralatan', '45.000', 'admin'),
-(18, '2022-08-30', 'Beli Pertamax', 'Kendaraan', '150.000', 'admin'),
-(19, '2022-08-02', 'Belanja Kebutuhan Makan 1 bulan', 'Makan dan Minum', '750.000', 'andi'),
-(20, '2022-08-05', 'Pembayaran Uang Kuliah', 'Lain - lain', '7.500.000', 'andi'),
-(21, '2022-08-08', 'Pembelian Meja Komputer', 'Peralatan', '2.500.000', 'andi'),
-(22, '2022-08-15', 'Pembayaran Uang Kas KSPM', 'Organisasi', '15.000', 'andi'),
-(23, '2022-08-25', 'Beli Peralatan Mandi', 'Keperluan pribadi', '55.000', 'andi'),
-(25, '2022-08-26', 'Pertamax', 'Lain - lain', '350.000', 'andi'),
-(26, '2022-08-30', 'Pembelian Montor ZX-25r', 'Kendaraan', '113.000.000', 'andi'),
-(27, '2022-08-31', 'Perpanjang layanan hosting', 'Lain - lain', '5.475.000', 'andi'),
-(28, '2022-08-31', 'Pembayaran Uang Kas ', 'Organisasi', '15.000', 'andi');
+(31, '2024-05-27', 'Pembayaran Kebutuhan Organisasi', 'Organisasi', '45.000.000', 'admin'),
+(32, '2024-05-27', 'Pembayaran Hutang Bos', 'Hutang', '15.000.000', 'admin'),
+(33, '2024-05-27', 'Pembelian Pertamax', 'Kendaraan', '200.000', 'admin'),
+(34, '2024-05-27', 'Pembelanjaan Konsumsi', 'Makan dan Minum', '12.000.000', 'admin'),
+(35, '2024-05-27', 'Pembayaran Setting Jaringan', 'Peralatan', '3.600.000', 'andi'),
+(36, '2024-05-27', 'Perpanjang Layanan Hosting', 'Lain - lain', '5.500.000', 'andi'),
+(37, '2024-05-27', 'Pembayaran Uang Kas', 'Organisasi', '50.000', 'andi'),
+(38, '2024-05-27', 'Pembelian Kebutuhan Sebulan', 'Makan dan Minum', '9.200.000', 'andi');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rekening_keluar`
+-- Struktur dari tabel `rekening_keluar`
 --
 
 CREATE TABLE `rekening_keluar` (
@@ -134,17 +117,17 @@ CREATE TABLE `rekening_keluar` (
   `aksi` varchar(10) NOT NULL DEFAULT 'keluar',
   `tanggal` date NOT NULL,
   `username` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `rekening_keluar`
+-- Dumping data untuk tabel `rekening_keluar`
 --
 
 INSERT INTO `rekening_keluar` (`id`, `kode`, `jumlah`, `aksi`, `tanggal`, `username`) VALUES
 (16, 'TRF0001', '7.850.000', 'keluar', '2022-08-30', 'andi');
 
 --
--- Triggers `rekening_keluar`
+-- Trigger `rekening_keluar`
 --
 DELIMITER $$
 CREATE TRIGGER `tg_kodekeluar` BEFORE INSERT ON `rekening_keluar` FOR EACH ROW BEGIN
@@ -166,7 +149,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rekening_masuk`
+-- Struktur dari tabel `rekening_masuk`
 --
 
 CREATE TABLE `rekening_masuk` (
@@ -176,10 +159,10 @@ CREATE TABLE `rekening_masuk` (
   `aksi` varchar(20) NOT NULL DEFAULT 'masuk',
   `tanggal` date NOT NULL,
   `username` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `rekening_masuk`
+-- Dumping data untuk tabel `rekening_masuk`
 --
 
 INSERT INTO `rekening_masuk` (`id`, `kode`, `jumlah`, `aksi`, `tanggal`, `username`) VALUES
@@ -188,7 +171,7 @@ INSERT INTO `rekening_masuk` (`id`, `kode`, `jumlah`, `aksi`, `tanggal`, `userna
 (19, 'TRX0003', '7.850.000', 'masuk', '2022-08-30', 'admin');
 
 --
--- Triggers `rekening_masuk`
+-- Trigger `rekening_masuk`
 --
 DELIMITER $$
 CREATE TRIGGER `tg_kodemasuk` BEFORE INSERT ON `rekening_masuk` FOR EACH ROW BEGIN
@@ -210,7 +193,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -221,10 +204,10 @@ CREATE TABLE `users` (
   `status` varchar(20) NOT NULL DEFAULT 'aktif',
   `level` varchar(10) NOT NULL DEFAULT 'user',
   `no_rek` char(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id_user`, `email`, `username`, `password`, `status`, `level`, `no_rek`) VALUES
@@ -236,35 +219,35 @@ INSERT INTO `users` (`id_user`, `email`, `username`, `password`, `status`, `leve
 --
 
 --
--- Indexes for table `pemasukkan`
+-- Indeks untuk tabel `pemasukkan`
 --
 ALTER TABLE `pemasukkan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_username_masuk` (`username`);
 
 --
--- Indexes for table `pengeluaran`
+-- Indeks untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_username_keluar` (`username`);
 
 --
--- Indexes for table `rekening_keluar`
+-- Indeks untuk tabel `rekening_keluar`
 --
 ALTER TABLE `rekening_keluar`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_username_rekening_keluar` (`username`);
 
 --
--- Indexes for table `rekening_masuk`
+-- Indeks untuk tabel `rekening_masuk`
 --
 ALTER TABLE `rekening_masuk`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_username_rekening_masuk` (`username`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
@@ -272,63 +255,63 @@ ALTER TABLE `users`
   ADD KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `pemasukkan`
+-- AUTO_INCREMENT untuk tabel `pemasukkan`
 --
 ALTER TABLE `pemasukkan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
--- AUTO_INCREMENT for table `pengeluaran`
+-- AUTO_INCREMENT untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `rekening_keluar`
+-- AUTO_INCREMENT untuk tabel `rekening_keluar`
 --
 ALTER TABLE `rekening_keluar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `rekening_masuk`
+-- AUTO_INCREMENT untuk tabel `rekening_masuk`
 --
 ALTER TABLE `rekening_masuk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `pemasukkan`
+-- Ketidakleluasaan untuk tabel `pemasukkan`
 --
 ALTER TABLE `pemasukkan`
   ADD CONSTRAINT `fk_username_masuk` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pengeluaran`
+-- Ketidakleluasaan untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   ADD CONSTRAINT `fk_username_keluar` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rekening_keluar`
+-- Ketidakleluasaan untuk tabel `rekening_keluar`
 --
 ALTER TABLE `rekening_keluar`
   ADD CONSTRAINT `fk_username_rekening_keluar` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rekening_masuk`
+-- Ketidakleluasaan untuk tabel `rekening_masuk`
 --
 ALTER TABLE `rekening_masuk`
   ADD CONSTRAINT `fk_username_rekening_masuk` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
